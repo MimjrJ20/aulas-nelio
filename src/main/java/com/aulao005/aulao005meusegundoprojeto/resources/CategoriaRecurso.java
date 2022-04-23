@@ -43,7 +43,9 @@ public class CategoriaRecurso {
 		//método hardcod
 		//CategoriaEntidade categoria = new CategoriaEntidade(1L, "Eletrônicos");
 		
-		CategoriaEntidade categoria = categoriaRepositorio.findById(id);
+		//CategoriaEntidade categoria = categoriaRepositorio.findById(id);
+		
+		CategoriaEntidade categoria = categoriaRepositorio.findById(id).get();
 		return ResponseEntity.ok().body(categoria);
 	}
 }

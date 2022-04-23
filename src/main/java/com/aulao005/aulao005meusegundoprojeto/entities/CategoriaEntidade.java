@@ -5,10 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //CRIANDO ENTIDADE CATEGORIA
 
+@Entity//que ela é uma entidade gerenciada pelo JPA, ou seja uma tabilidade
 public class CategoriaEntidade implements Serializable{
 	
 	
@@ -17,12 +24,15 @@ public class CategoriaEntidade implements Serializable{
 	
 	
 	//ATRIBUTOS
+	@Id//esse atributo é a chave primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//auto incrementavel no banco
 	private Long id;//para que o tipo aceite todos recursos de herança e polimorfismos da poo
 	private String nome;
 	
 	
 	//COMPOSIÇÃO
 	@JsonIgnore//não entrar em looping
+	@OneToMany(mappedBy = "categoria")//mapear o atributo categoria
 	private List<ProdutoEntidade> produtos = new ArrayList<>();
 	
 	//CONSTRUTOR (vazio) 

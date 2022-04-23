@@ -1,16 +1,19 @@
 package com.aulao005.aulao005meusegundoprojeto.repositories;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.aulao005.aulao005meusegundoprojeto.entities.ProdutoEntidade;
 
 //CRIANDO REPOSITORIO (ela vai ter acesso os dados)
 
+@Repository
+public interface ProdutoRepositorio extends JpaRepository<ProdutoEntidade, Long>{
+
+	
+}
+/*
+//método hardcode
 @Component//é em relação ao meconismo de injeção do spring boot
 public class ProdutoRepositorio {
 	
@@ -32,3 +35,4 @@ public class ProdutoRepositorio {
 		return new ArrayList<ProdutoEntidade>(mapa.values());
 	}
 }
+*/

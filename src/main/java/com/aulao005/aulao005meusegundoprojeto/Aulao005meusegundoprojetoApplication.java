@@ -29,13 +29,23 @@ public class Aulao005meusegundoprojetoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception 
 	{
-		CategoriaEntidade categoria1 = new CategoriaEntidade(1L, "Eletrônicos");
-		CategoriaEntidade categoria2 = new CategoriaEntidade(2L, "Livros");
+		//método hardcode
+		//CategoriaEntidade categoria1 = new CategoriaEntidade(1L, "Eletrônicos");
+		//CategoriaEntidade categoria2 = new CategoriaEntidade(2L, "Livros");
 		
-		ProdutoEntidade produto1 = new ProdutoEntidade(1L, "TV", 2500.00, categoria1);
-		ProdutoEntidade produto2 = new ProdutoEntidade(2L, "Domain Driven Design", 150.00, categoria2);
-		ProdutoEntidade produto3 = new ProdutoEntidade(3L, "PS5", 5000.00, categoria1);
-		ProdutoEntidade produto4 = new ProdutoEntidade(4L, "Docker", 200.00, categoria2);
+		CategoriaEntidade categoria1 = new CategoriaEntidade(null, "Eletrônicos");
+		CategoriaEntidade categoria2 = new CategoriaEntidade(null, "Livros");
+		
+		//método hardcode
+		//ProdutoEntidade produto1 = new ProdutoEntidade(1L, "TV", 2500.00, categoria1);
+		//ProdutoEntidade produto2 = new ProdutoEntidade(2L, "Domain Driven Design", 150.00, categoria2);
+		//ProdutoEntidade produto3 = new ProdutoEntidade(3L, "PS5", 5000.00, categoria1);
+		//ProdutoEntidade produto4 = new ProdutoEntidade(4L, "Docker", 200.00, categoria2);
+		
+		ProdutoEntidade produto1 = new ProdutoEntidade(null, "TV", 2500.00, categoria1);
+		ProdutoEntidade produto2 = new ProdutoEntidade(null, "Domain Driven Design", 150.00, categoria2);
+		ProdutoEntidade produto3 = new ProdutoEntidade(null, "PS5", 5000.00, categoria1);
+		ProdutoEntidade produto4 = new ProdutoEntidade(null, "Docker", 200.00, categoria2);
 		
 		categoria1.getProdutos().addAll(Arrays.asList(produto1, produto3));
 		categoria2.getProdutos().addAll(Arrays.asList(produto2, produto4));

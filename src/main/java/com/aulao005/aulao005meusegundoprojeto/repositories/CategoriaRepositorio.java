@@ -1,19 +1,23 @@
 package com.aulao005.aulao005meusegundoprojeto.repositories;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.aulao005.aulao005meusegundoprojeto.entities.CategoriaEntidade;
 
 //CRIANDO REPOSITORIO (ela vai ter acesso os dados)
 
-@Component//é em relação ao meconismo de injeção do spring boot
-public class CategoriaRepositorio {
+@Repository
+public interface CategoriaRepositorio extends JpaRepository<CategoriaEntidade, Long>{
+
 	
+}
+/*
+//método hardcode
+//@Component//é em relação ao meconismo de injeção do spring boot
+//public class CategoriaRepositorio {
+
+
 	private Map<Long, CategoriaEntidade> mapa = new HashMap<>();//coleção de pares (chave para seu valor correspondente)
 	
 	public void save(CategoriaEntidade objeto)
@@ -30,4 +34,6 @@ public class CategoriaRepositorio {
 	{
 		return new ArrayList<CategoriaEntidade>(mapa.values());
 	}
+	
 }
+	*/

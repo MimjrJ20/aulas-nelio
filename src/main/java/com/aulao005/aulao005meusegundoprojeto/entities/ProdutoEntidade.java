@@ -3,19 +3,31 @@ package com.aulao005.aulao005meusegundoprojeto.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 //CRIANDO ENTIDADE CATEGORIA
 
+@Entity//que ela é uma entidade gerenciada pelo JPA, ou seja uma tabilidade
 public class ProdutoEntidade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	//ATRIBUTOS
+	@Id//esse atributo é a chave primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//auto incrementavel no banco
 	private Long id;
 	private String nome;
 	private Double preco;
 	
 	//composição VÁROS produtos para UMA categoria
 	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")//nome da tabela
 	private CategoriaEntidade categoria;
 	
 	public ProdutoEntidade() 
