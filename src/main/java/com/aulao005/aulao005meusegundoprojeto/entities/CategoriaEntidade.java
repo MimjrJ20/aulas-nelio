@@ -1,7 +1,11 @@
 package com.aulao005.aulao005meusegundoprojeto.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //CRIANDO ENTIDADE CATEGORIA
 
@@ -16,6 +20,10 @@ public class CategoriaEntidade implements Serializable{
 	private Long id;//para que o tipo aceite todos recursos de herança e polimorfismos da poo
 	private String nome;
 	
+	
+	//COMPOSIÇÃO
+	@JsonIgnore//não entrar em looping
+	private List<ProdutoEntidade> produtos = new ArrayList<>();
 	
 	//CONSTRUTOR (vazio) 
 	public CategoriaEntidade()
@@ -50,7 +58,13 @@ public class CategoriaEntidade implements Serializable{
 		this.nome = nome;
 	}
 	
+	//GET PRODUTOS acessar a lista de produtos
 	
+	public List<ProdutoEntidade> getProdutos() {
+		return produtos;
+	}
+
+
 	//ANOTAÇÕES critério personalizado de comparações (direito - source - generte hash and code)
 	@Override
 	public int hashCode() {
